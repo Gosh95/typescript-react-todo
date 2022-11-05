@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './Todos.module.css';
+import TodoForm from './Todo/TodoForm';
 
 export const TODO_DUMMY = [
   {
@@ -33,6 +34,7 @@ const Todos: React.FC = () => {
 
   return (
     <main className={classes.todos}>
+      <TodoForm />
       <div>
         <ul>{todos}</ul>
       </div>
