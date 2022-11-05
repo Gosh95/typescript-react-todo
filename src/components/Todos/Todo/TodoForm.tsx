@@ -23,6 +23,7 @@ const TodoForm: React.FC<Props> = ({ onAddTodo }) => {
     }
 
     onAddTodo({ id: Math.random().toString(), text: enteredTodoText });
+    setIsValidForm(true);
     todoInput.value = '';
   };
 
