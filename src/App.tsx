@@ -1,10 +1,11 @@
-import React from "react";
+import React, { Fragment } from 'react';
+import Todos from './components/Todos/Todos';
 
 const App: React.FC = () => {
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <Fragment>
+      <Todos />
+    </Fragment>
   );
 };
 

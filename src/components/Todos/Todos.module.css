@@ -1,0 +1,15 @@
+.todos {
+  margin: 2rem auto;
+  padding: 1rem;
+  width: 90%;
+  max-width: 60rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  background: #ffffff;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
