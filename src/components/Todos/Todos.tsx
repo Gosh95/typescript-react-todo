@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './Todos.module.css';
 import TodoForm from './Todo/TodoForm';
+import Todo from './Todo/Todo';
 
 export const TODO_DUMMY = [
   {
@@ -30,7 +31,7 @@ export const TODO_DUMMY = [
 ];
 
 const Todos: React.FC = () => {
-  const todos = TODO_DUMMY.map((todo) => <li key={todo.id}>{todo.text}</li>);
+  const todos = TODO_DUMMY.map((todo) => <Todo key={todo.id} id={todo.id} text={todo.text} />);
 
   return (
     <main className={classes.todos}>
