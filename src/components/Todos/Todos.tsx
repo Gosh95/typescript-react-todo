@@ -1,43 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classes from './Todos.module.css';
 import TodoForm from './Todo/TodoForm';
 import Todo from './Todo/Todo';
-
-export const TODO_DUMMY = [
-  {
-    id: Math.random().toString(),
-    text: 'i will do something.',
-  },
-  {
-    id: Math.random().toString(),
-    text: 'i will do something.',
-  },
-  {
-    id: Math.random().toString(),
-    text: 'i will do something.',
-  },
-  {
-    id: Math.random().toString(),
-    text: 'i will do something.',
-  },
-  {
-    id: Math.random().toString(),
-    text: 'i will do something.',
-  },
-  {
-    id: Math.random().toString(),
-    text: 'i will do something.',
-  },
-];
+import TodoType from '../../interfaces/todo/todo';
 
 const Todos: React.FC = () => {
-  const todos = TODO_DUMMY.map((todo) => <Todo key={todo.id} id={todo.id} text={todo.text} />);
+  const [todos, setTodos] = useState<TodoType[]>([]);
+  const todoList = todos.map((todo) => <Todo key={todo.id} id={todo.id} text={todo.text} />);
+
+  const addTodoHandler = (todo: TodoType) => {
+    setTodos((prevTodos) => [todo, ...prevTodos]);
+  };
 
   return (
     <main className={classes.todos}>
-      <TodoForm />
+      <TodoForm onAddTodo={addTodoHandler} />
       <div>
-        <ul>{todos}</ul>
+        {todos.length === 0 && <h2 className={classes.nothing}>Nothing to do.</h2>}
+        {todoList}
       </div>
     </main>
   );
