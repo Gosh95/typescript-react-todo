@@ -14,14 +14,16 @@ const TodoForm: React.FC<Props> = ({ onAddTodo }) => {
   const submitTodoHandler = (e: FormEvent) => {
     e.preventDefault();
 
-    const enteredTodoText = inputRef.current!.value;
+    const input = inputRef.current! as HTMLInputElement;
+    const enteredTodoText = input.value;
     if (enteredTodoText.trim().length === 0) {
       setIsValidForm(false);
-      inputRef.current!.focus();
+      input.focus();
       return;
     }
 
     onAddTodo({ id: Math.random().toString(), text: enteredTodoText });
+    input.value = '';
   };
 
   return (
