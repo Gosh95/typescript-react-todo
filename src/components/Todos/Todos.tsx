@@ -1,25 +1,19 @@
-import React, { useState } from 'react';
-import classes from './Todos.module.css';
-import TodoForm from './Todo/TodoForm';
+import React from 'react';
 import Todo from './Todo/Todo';
 import TodoType from '../../interfaces/todo/todo';
+import classes from './Todos.module.css';
 
-const Todos: React.FC = () => {
-  const [todos, setTodos] = useState<TodoType[]>([]);
+interface Props {
+  todos: TodoType[];
+}
+
+const Todos: React.FC<Props> = ({ todos }) => {
   const todoList = todos.map((todo) => <Todo key={todo.id} id={todo.id} text={todo.text} />);
-
-  const addTodoHandler = (todo: TodoType) => {
-    setTodos((prevTodos) => [todo, ...prevTodos]);
-  };
-
   return (
-    <main className={classes.todos}>
-      <TodoForm onAddTodo={addTodoHandler} />
-      <div>
-        {todos.length === 0 && <h2 className={classes.nothing}>Nothing to do.</h2>}
-        {todoList}
-      </div>
-    </main>
+    <div className={classes.todos}>
+      {todos.length === 0 && <h2 className={classes.nothing}>Nothing to do.</h2>}
+      <ul>{todoList}</ul>
+    </div>
   );
 };
 

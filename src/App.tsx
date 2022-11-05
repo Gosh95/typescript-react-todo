@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
-import Todos from './components/Todos/Todos';
+import TodosContainer from './components/Todos/TodosContainer';
 
 const App: React.FC = () => {
   return (
     <Fragment>
-      <Todos />
+      <TodosContainer />
     </Fragment>
   );
 };
